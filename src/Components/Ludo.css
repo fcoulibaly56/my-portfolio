@@ -1,0 +1,139 @@
+/* Styles généraux */
+.ludo-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+/* Titre du jeu */
+.ludo-game h1 {
+  font-size: 2rem;
+  color: #6d6875;
+  margin-bottom: 1rem;
+}
+
+/* Plateau de jeu */
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 50px); /* 5 colonnes de 50px */
+  grid-template-rows: repeat(5, 50px); /* 5 lignes de 50px */
+  gap: 5px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cellules du plateau */
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Pions des joueurs */
+.player1, .player2 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.player1 {
+  background-color: red; /* Couleur du joueur 1 */
+}
+
+.player2 {
+  background-color: green; /* Couleur du joueur 2 */
+}
+
+/* Contrôles du jeu */
+.controls {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.controls button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #6d6875;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.controls button:hover {
+  background-color: #e5989b;
+}
+
+.controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Statut du jeu (tour du joueur) */
+.status {
+  font-size: 1.2rem;
+  color: #6d6875;
+  margin-bottom: 0.5rem;
+}
+
+/* Résultat du dé */
+.dice-result {
+  font-size: 1.1rem;
+  color: #6d6875;
+}
+
+/* Message du vainqueur */
+.winner-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.winner-message {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #6d6875;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.winner-message button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #e5989b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.winner-message button:hover {
+  background-color: #ffb4a2;
+}
