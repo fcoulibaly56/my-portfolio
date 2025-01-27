@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll';//defilement par anchorlink a defaut de react-scroll
-import { motion } from 'framer-motion';
+import { hover, motion } from 'framer-motion';
 import styled from 'styled-components';//importation des styles depuis styled component
 import { FaBars, FaTimes,FaDownload } from 'react-icons/fa';
 import fatoumata from '../Assets/images/fatoumata.JPG';//fatoumata's logo
@@ -130,12 +130,23 @@ const CloseIcon = styled(FaTimes)`
 // Styles pour les icônes des plateformes de freelance
 const SocialIcons = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 1rem; 
+  align-items: center
 
   @media (max-width: 768px) {
     display: none;
   }
 `;
+//styles pour les icones mobiles
+const MobileSocialIcons= styled.div`
+display:none;
+@media (max-width:768px){
+display:flex;
+gap:1.5rem;
+justify-content: center;
+padding:1rem 0;
+border-top:1px solid rgba(255, 255, 255, 0.1);
+}`
 // Styles pour l'icône de téléchargement
 const DownloadIcon = styled.a`
   color: white;
@@ -223,39 +234,82 @@ const Header = () => {
             <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </>
         )}
+        {/*  partie dekstop-a droite*/}
+  <SocialIcons>
+    <motion.a
+      href="https://www.upwork.com/freelancers/~0160e1b7b859e02fd1?mp_source=share"
+      target="_blank"
+      rel="noopener noreferrer"
+      variants={iconVariants}
+      whileHover="hover"
+    >
+      <img src={upworkLogo} alt="Upwork" style={{ width: '24px', height: '24px' }} />
+    </motion.a>
+    <motion.a
+      href="https://www.fiverr.com/users/fcoulibaly56"
+      target="_blank"
+      rel="noopener noreferrer"
+      variants={iconVariants}
+      whileHover="hover"
+    >
+      <img src={fiverrLogo} alt="Fiverr" style={{ width: '24px', height: '24px' }} />
+    </motion.a>
+    <motion.a
+      href="https://www.peopleperhour.com/freelancer/fanta-coulibaly-web-developer-zyayanwa"
+      target="_blank"
+      rel="noopener noreferrer"
+      variants={iconVariants}
+      whileHover="hover"
+    >
+      <img src={peoplePerHourLogo} alt="PeoplePerHour" style={{ width: '24px', height: '24px' }} />
+    </motion.a>
+    </SocialIcons>
+    {/*partie-mobile dans le menu deroulant*/}
+    <MobileSocialIcons>
+      <motion.a 
+      href='https://www.upwork.com/freelancers/~0160e1b7b859e02fd1?mp_source=share'
+      variants={iconVariants}
+      whileHover={hover}>
+        <img
+        src='upwork.png'
+        alt='upwork'
+        style={{
+          width:'32px',
+          height:'32px',
+          filter:'brightness(0) invert(1)'
+        }}/>
+      </motion.a>
+      <motion.a 
+      href='https://www.fiverr.com/users/fcoulibaly56'
+      variants={iconVariants}
+      whileHover={hover}>
+        <img
+        src='fiverr logo.png'
+        alt='fiverr'
+        style={{
+          width:'32px',
+          height:'32px',
+          filter:'brightness(0) invert(1)'
+        }}/>
+      </motion.a>
+      <motion.a 
+      href='https://www.peopleperhour.com/freelancer/fanta-coulibaly-web-developer-zyayanwa'
+      variants={iconVariants}
+      whileHover={hover}>
+        <img
+        src='peopleperhour-logo.png'
+        alt='pph'
+        style={{
+          width:'32px',
+          height:'32px',
+          filter:'brightness(0) invert(1)'
+        }}/>
+      </motion.a>
+    </MobileSocialIcons>
+    
       </Nav>
 
-      {/* Icônes des plateformes de freelance */}
-      <SocialIcons>
-        <motion.a
-          href="https://www.upwork.com/freelancers/~0160e1b7b859e02fd1?mp_source=share"
-          target="_blank"
-          rel="noopener noreferrer"
-          variants={iconVariants}
-          whileHover="hover"
-        >
-          <img src={upworkLogo} alt="Upwork" style={{ width: '24px', height: '24px' }} />
-        </motion.a>
-        <motion.a
-          href="https://www.fiverr.com/users/fcoulibaly56"
-          target="_blank"
-          rel="noopener noreferrer"
-          variants={iconVariants}
-          whileHover="hover"
-        >
-          <img src={fiverrLogo} alt="Fiverr" style={{ width: '24px', height: '24px' }} />
-        </motion.a>
-        <motion.a
-          href="https://www.peopleperhour.com/freelancer/fanta-coulibaly-web-developer-zyayanwa"
-          target="_blank"
-          rel="noopener noreferrer"
-          variants={iconVariants}
-          whileHover="hover"
-        >
-          <img src={peoplePerHourLogo} alt="PeoplePerHour" style={{ width: '24px', height: '24px' }} />
-        </motion.a>
-      </SocialIcons>
-
+      
       {/* Icône du menu hamburger ou de fermeture */}
       {isMenuOpen ? (
         <CloseIcon onClick={toggleMenu} />
