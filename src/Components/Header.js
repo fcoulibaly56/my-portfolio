@@ -161,7 +161,7 @@ const MobileSocialIcons = styled.div`
     img {
       width: 32px;
       height: 32px;
-      filter: brightness(0) invert(1);
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
       display: block;
     }
   }
