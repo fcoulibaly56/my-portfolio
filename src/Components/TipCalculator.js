@@ -52,7 +52,7 @@ const TipCalculator = () => {
   const calculateTip = () => {
     const billAmount = parseFloat(amount);
     if (isNaN(billAmount) || billAmount <= 0) {
-      alert('Veuillez entrer un montant valide.');
+      alert('Please enter a valid Amount.');
       return;
     }
 

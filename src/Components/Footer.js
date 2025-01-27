@@ -93,9 +93,9 @@ const Footer = () => {
         <motion.a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" variants={iconVariants} whileHover="hover">
           <FaTwitter />
         </motion.a>
-        <motion.a href="linkedin.com/in/fanta-coulibaly-208b62334" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" variants={iconVariants} whileHover="hover">
-          <FaLinkedin />
-        </motion.a>
+        <motion.a href="https://www.linkedin.com/in/fanta-coulibaly-208b62334" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" variants={iconVariants} whileHover="hover">
+  <FaLinkedin />
+</motion.a>
       </SocialIcons>
     </FooterContainer>
   );
